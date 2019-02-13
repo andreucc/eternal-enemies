@@ -30,16 +30,29 @@ const main = () =>{
     
         canvasElement.setAttribute('width', width);
         canvasElement.setAttribute('height', height);
+
+        document.addEventListener('click', (event) => {
+            // envent.code ==='ArrowUp => 
+             console.log(event)
+        })
         
         setTimeout(buildGameOver, 3000);
 
         const game = new Game(canvasElement);
         game.startLoop();
+
+        const setPlayerDirection = (event) => {
+            if (event === 'ArrowUp') {
+                this.game.player.setDirection(-1)
+            } else if (even === 'ArrowDown') {
+                this.game.player.setDirection(1)
+            }
+        }
     }
 
     const buildGameOver = () => {
         const gameOverScreen = buildDom(`
-            <section class = "games-over">
+            <section class="games-over">
             <h1>Game Over Screen</h1>
             <button>Restart</button>
         `);

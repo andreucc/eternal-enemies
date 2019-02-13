@@ -10,7 +10,7 @@ class Game{
 
     startLoop (){
         console.log('out of loop');
-
+        this.player = new Player(this.canvas, 3)
         const loop = () => {
             console.log('in the loop');
             this.updateCanvas();
@@ -20,16 +20,18 @@ class Game{
         }
         window.requestAnimationFrame(loop);
     }
+     
 
     updateCanvas(){
-        this.ctx.clearRect(0,0,this.canvas.width, this.canvas.height)
+        this.ctx.clearRect(0,0,this.canvas.width, this.canvas.height);
+        this.player.update();
     };
 
     clearCanvas(){
-
+        
     };
 
     drawCanvas(){
-
+        this.player.draw()
     };
 }
